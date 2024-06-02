@@ -57,9 +57,9 @@ bun index.js 20000
 349 |       return reply(null, f);
                    ^
 TypeError: reply is not a function. (In 'reply(null, f)', 'reply' is null)
-      at /Users/steve/Development/amqp-node/foo/amqplib-764/node_modules/amqplib/lib/channel.js:349:14
-      at mainAccept (/Users/steve/Development/amqp-node/foo/amqplib-764/node_modules/amqplib/lib/connection.js:582:21)
-      at go (/Users/steve/Development/amqp-node/foo/amqplib-764/node_modules/amqplib/lib/connection.js:434:11)
+      at /Users/acuminous/Development/amqplib-764/node_modules/amqplib/lib/channel.js:349:14
+      at mainAccept (/Users/acuminous/Development/amqplib-764/node_modules/amqplib/lib/connection.js:582:21)
+      at go (/Users/acuminous/Development/amqplib-764/node_modules/amqplib/lib/connection.js:434:11)
       at emit (node:events:180:95)
       at emitReadable_ (node:stream:1957:53)
 ```
