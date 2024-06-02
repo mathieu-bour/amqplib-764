@@ -28,5 +28,6 @@ async function get() {
     await channel.cancel(consumerTag);
     await channel.close();
     await connection.close();
+    console.log('OK');
   });
 }
