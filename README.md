@@ -11,7 +11,7 @@
 
 ```
 git clone git@github.com:acuminous/amqplib-764.git
-cd amqlib-764
+cd amqplib-764
 npm i
 docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.12.9-management-alpine
 node index.js
