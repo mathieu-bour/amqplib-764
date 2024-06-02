@@ -6,6 +6,7 @@ const content = Buffer.from(new Array(size).fill('x').join(''));
 (async () => {
   await publish();
   await get();
+  console.log('OK');  
 })();
 
 async function publish() {
@@ -24,5 +25,4 @@ async function get() {
   await channel.get('q764');
   await channel.close();
   await connection.close();
-  console.log('OK');
 }
