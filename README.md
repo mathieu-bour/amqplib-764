@@ -3,9 +3,10 @@
 ## Environment
 1. amqplib v0.10.4
 2. Node.js v20.10.0
-3. RabbitMQ rabbitmq:3.12.9-management-alpine
-4. Docker 20.10.13, build a224086
-5. Darwin Kernel Version 23.4.0: Fri Mar 15 00:11:05 PDT 2024; root:xnu-10063.101.17~1/RELEASE_X86_64
+3. Bun v1.1.12
+4. RabbitMQ rabbitmq:3.12.9-management-alpine
+5. Docker 20.10.13, build a224086
+6. Darwin Kernel Version 23.4.0: Fri Mar 15 00:11:05 PDT 2024; root:xnu-10063.101.17~1/RELEASE_X86_64
 
 ## Steps to reproduce
 
@@ -48,16 +49,19 @@ OK
 
 ```
 bun index.js 20000
-577 | }
-578 |
-579 | // Usual frame accept mode
-580 | function mainAccept(frame) {
-581 |   var rec = this.channels[frame.channel];
-582 |   if (rec) { return rec.channel.accept(frame); }
-                          ^
-TypeError: null is not a function
-      at mainAccept (/Users/acuminous/Development/amqplib-764/node_modules/amqplib/lib/connection.js:582:21)
-      at go (/Users/acuminous/Development/amqplib-764/node_modules/amqplib/lib/connection.js:434:11)
+344 |       if (this.pending.length > 0) {
+345 |         var send = this.pending.shift();
+346 |         this.reply = send.reply;
+347 |         this.sendImmediately(send.method, send.fields);
+348 |       }
+349 |       return reply(null, f);
+                   ^
+TypeError: reply is not a function. (In 'reply(null, f)', 'reply' is null)
+      at /Users/steve/Development/amqp-node/foo/amqplib-764/node_modules/amqplib/lib/channel.js:349:14
+      at mainAccept (/Users/steve/Development/amqp-node/foo/amqplib-764/node_modules/amqplib/lib/connection.js:582:21)
+      at go (/Users/steve/Development/amqp-node/foo/amqplib-764/node_modules/amqplib/lib/connection.js:434:11)
+      at emit (node:events:180:95)
+      at emitReadable_ (node:stream:1957:53)
 ```
 
 ```
