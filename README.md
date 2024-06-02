@@ -33,11 +33,6 @@ OK
 ```
 
 ```
-node index.js 100000
-OK
-```
-
-```
 node index.js 200000
 OK
 ```
