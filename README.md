@@ -1,11 +1,10 @@
 # amqplib-764
 
-## Installation
-```
-npm i
-```
-
 ## Steps to reproduce
+
 ```
+git clone
+cd amqlib-764
+npm i
 node index.js
 ```
