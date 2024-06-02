@@ -21,14 +21,8 @@ async function publish() {
 async function get() {
   const connection = await amqplib.connect();
   const channel = await connection.createChannel();
-
-  const { consumerTag } = await channel.consume('q764', async (message) => {
-    setImmediate(async () => {
-      channel.ack(message);
-      await channel.cancel(consumerTag);
-      await channel.close();
-      await connection.close();
-      console.log('OK');
-    })
-  });
+  await channel.get('q764');
+  await channel.close();
+  await connection.close();
+  console.log('OK');
 }
