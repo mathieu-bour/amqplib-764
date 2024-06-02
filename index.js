@@ -19,7 +19,7 @@ async function publish() {
 }
 
 async function get() {
-  const connection = await amqplib.connect();
+  const connection = await amqplib.connect('amqp://localhost:5672');
   const channel = await connection.createChannel();
   await channel.get('q764');
   await channel.close();
