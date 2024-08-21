@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.10.4"
+  },
+  "patchedDependencies": {
+    "amqplib@0.10.4": "patches/amqplib@0.10.4.patch"
   }
 }

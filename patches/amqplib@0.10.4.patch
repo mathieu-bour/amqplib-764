@@ -1,0 +1,70 @@
+diff --git a/lib/connection.js b/lib/connection.js
+index 1c58ac5f04bdecc23123fa70cbd07f464787233e..cb24a0951629f752ba3c1b53bf6a6cecdcc01db7 100644
+--- a/lib/connection.js
++++ b/lib/connection.js
+@@ -10,9 +10,7 @@ var frame = require('./frame');
+ var HEARTBEAT = frame.HEARTBEAT;
+ var Mux = require('./mux').Mux;
+ 
+-var Duplex =
+-  require('stream').Duplex ||
+-  require('readable-stream/duplex');
++var Duplex = require('readable-stream').Duplex;
+ var EventEmitter = require('events');
+ var Heart = require('./heartbeat').Heart;
+ 
+@@ -22,8 +20,7 @@ var inspect = require('./format').inspect;
+ 
+ var BitSet = require('./bitset').BitSet;
+ var fmt = require('util').format;
+-var PassThrough = require('stream').PassThrough ||
+-  require('readable-stream/passthrough');
++var PassThrough = require('readable-stream').PassThrough;
+ var IllegalOperationError = require('./error').IllegalOperationError;
+ var stackCapture = require('./error').stackCapture;
+ 
+diff --git a/test/frame.js b/test/frame.js
+index 53551afc016a419e8ef3f2e36d9f47385d4e51dd..ad3eb25e0b4e1ab57041fe76e32aac832683050e 100644
+--- a/test/frame.js
++++ b/test/frame.js
+@@ -6,9 +6,8 @@ var fail = require('./util').fail;
+ var connection = require('../lib/connection');
+ var Frames = connection.Connection;
+ var HEARTBEAT = require('../lib/frame').HEARTBEAT;
+-var Stream = require('stream');
+-var PassThrough = Stream.PassThrough ||
+-    require('readable-stream/passthrough');
++var Stream = require('readable-stream');
++var PassThrough = Stream.PassThrough;
+ 
+ var defs = require('../lib/defs');
+ 
+diff --git a/test/mux.js b/test/mux.js
+index b785ac0563c727bfa7567a97c2461924695f95b6..a9daef74da3897356262f523b9ec041a3b14b650 100644
+--- a/test/mux.js
++++ b/test/mux.js
+@@ -2,8 +2,7 @@
+ 
+ var assert = require('assert');
+ var Mux = require('../lib/mux').Mux;
+-var PassThrough = require('stream').PassThrough ||
+-  require('readable-stream/passthrough');
++var PassThrough = require('readable-stream').PassThrough;
+ 
+ var latch = require('./util').latch;
+ var schedule = require('./util').schedule;
+diff --git a/test/util.js b/test/util.js
+index 0cc8122d6b481ff013ab89227638505d17da8d0d..69c0de7d994c9814f4e33de9d68422b272ffa435 100644
+--- a/test/util.js
++++ b/test/util.js
+@@ -2,9 +2,7 @@
+ 
+ var crypto = require('crypto');
+ var Connection = require('../lib/connection').Connection;
+-var PassThrough =
+-  require('stream').PassThrough ||
+-  require('readable-stream/passthrough');
++var PassThrough = require('readable-stream').PassThrough;
+ var defs = require('../lib/defs');
+ var assert = require('assert');
+ 
